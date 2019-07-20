@@ -43,17 +43,16 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" id="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" id="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="nav-link" href="#">Link</a>
+                                <a class="nav-link" id="nav-link" href="#">About Us</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                    <a class="dropdown-item" id="nav-link" href="#">Action 1</a>
-                                    <a class="dropdown-item" id="nav-link" href="#">Action 2</a>
-                                </div>
+                            <li class="nav-item">
+                                <a class="nav-link" id="nav-link" href="#">Location</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="nav-link" href="#">Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -65,11 +64,8 @@
                         <p class="hl"></p>
                         <a href="#" class="register">  Login / Register</a>
                         <p class="hl"></p>
-                        <a href="#"><img src="{{ asset('images/logo/arrow.png') }}" alt="" height="80px" width="auto"> </a>
                     </div>
                 </div>
-
-                {{-- arrow --}}
 
 
             </div>

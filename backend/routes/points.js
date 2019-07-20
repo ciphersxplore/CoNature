@@ -4,8 +4,8 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  let inventory = await PointModel.find();
-  res.send(users);
+  let points = await PointModel.find();
+  res.send(points);
 });
 
 router.post("/add/:id", async (req, res) => {
@@ -30,8 +30,22 @@ router.post("/add/:id", async (req, res) => {
 });
 
 router.post("/less/:id", async (req, res) => {
-    let user_id = req.params.id;
-    let added_points = req.body.
+  let user_id = req.params.id;
+  let { deducted_id, reward_id, remarks } = req.body;
+
+  let conversion = await PointModel({
+    user_id: user_id,
+    deducted_id: deducted_id,
+    reward_id: reward_id,
+    remarks: remarks
+  });
+
+  try {
+    conversion = await conversion.save();
+    res.send(conversion);
+  } catch (ex) {
+    res.status(400).send("Error met");
+  }
 });
 
 module.exports = router;
