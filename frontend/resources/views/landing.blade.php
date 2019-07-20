@@ -58,8 +58,16 @@
                     </div>
                 </nav>
 
+                <div class="row">
+
+                {{-- message --}}
+                <div class="col-md-7">
+                    <img src="{{ asset('images/logo/message.png') }}" class="img-fluid" alt="" width="50%" height="auto">
+                    <p>Promoting sustainable consumerism and strategic production</p>
+                </div>
+
                 {{-- side panel --}}
-                <div class="login">
+                <div class="login col-md-4">
                     <div class="row">
                         <p class="hl"></p>
                         <a href="#" class="register">  Login / Register</a>
@@ -67,6 +75,7 @@
                     </div>
                 </div>
 
+                </div>
 
             </div>
         </header>

@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const UserModel = require("../models/User");
 const express = require("express");
 const router = express.Router();
+const bcrypt = require("bcrypt");
 
 router.get("/", async (req, res) => {
   let users = await UserModel.find();

@@ -3,6 +3,7 @@ body {
     height: 100%;
     margin: 0;
 }
+
 .wrapper {
     min-height: 100%;
 
@@ -20,6 +21,8 @@ a {
 a:hover {
     color: #2cf09c;
     text-decoration: none;
+    border-bottom: 2px solid white;
+    padding-bottom: 2px;
 }
 
 #nav-link,
@@ -38,6 +41,14 @@ a:hover {
     font-size: 1.5rem;
 }
 
+.login:hover {
+    color: #2cf09c;
+    text-decoration: none;
+    padding-left: 5px;
+    border-left: 2px solid white;
+    padding-bottom: 2px;
+}
+
 .login a img {
     margin-top: 90%;
 }
@@ -52,6 +63,7 @@ a:hover {
     margin-top: 10px;
     margin-right: 20px;
 }
+
 /* Header */
 
 header {
