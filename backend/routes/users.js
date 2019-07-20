@@ -1,3 +1,4 @@
+const auth = require("../middlewares/auth");
 const mongoose = require("mongoose");
 const UserModel = require("../models/User");
 const express = require("express");
@@ -9,6 +10,7 @@ router.get("/", async (req, res) => {
   res.send(users);
 });
 
+//Registration - unique password should be handled by front-end
 router.post("/", async (req, res) => {
   if (!req.body.email_address) return res.status(400).send("Email is required");
 
@@ -37,16 +39,17 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+//Edit profile, must be logged in
+router.put("/:id", auth, async (req, res) => {
   let user = await UserModel.findById(req.params.id);
-  first_name = req.body.first_name;
-  last_name = req.body.last_name;
-  image_path = req.body.image_path;
-  contact_number = req.body.contact_number;
-  email_address = req.body.email_address;
-  role = req.body.role;
-  organization = req.body.organization;
-  status = req.body.status;
+  user.first_name = req.body.first_name;
+  user.last_name = req.body.last_name;
+  user.image_path = req.body.image_path;
+  user.contact_number = req.body.contact_number;
+  user.email_address = req.body.email_address;
+  user.role = req.body.role;
+  user.organization = req.body.organization;
+  user.status = req.body.status;
 
   let salt = await bcrypt.genSalt(10);
   let hashed = await bcrypt.hash(req.body.password, salt);
@@ -56,7 +59,7 @@ router.put("/:id", async (req, res) => {
   res.send(user);
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", auth, async (req, res) => {
   let user = await UserModel.findByIdAndRemove(req.params.id);
   res.send(user);
 });

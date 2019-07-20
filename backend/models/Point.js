@@ -8,19 +8,11 @@ const PointsSchema = new Schema({
     required: true
   },
   points: Number,
-  inventory_id: {
-    type: Schema.Types.ObjectId,
-    ref: "Inventory"
-  },
-  reward_id: {
-    type: Schema.Types.ObjectId,
-    ref: "Reward"
-  },
-  remarks: String,
-  timestamp: {
-    type: Date,
-    default: Date.now
-  }
+  reward_item: String,
+  reward_points_required: Number,
+  remarks: String
 });
+
+PointsSchema.plugin(timestamps);
 
 module.exports = mongoose.model("Points", PointsSchema);

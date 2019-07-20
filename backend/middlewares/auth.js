@@ -7,7 +7,7 @@ module.exports = function (req, res, next) {
   if (!token) return res.status(400).send('Access denied. No token provided ');
 
   try {
-    let payload = jwt.verify(token, config.secret);
+    let payload = jwt.verify(token, config.secretKey);
     req.user = payload;
     next();
   } catch (ex) {

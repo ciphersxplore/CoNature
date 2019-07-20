@@ -30,7 +30,7 @@
 
         <nav class="navbar navbar-expand-md text-white bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#"><img src="{{ asset('images/logo/landscape.png') }}" alt="" width="150px" height="auto"></a>
+                <a class="navbar-brand" href="{{ url('/') }}"><img src="{{ asset('images/logo/landscape.png') }}" alt="" width="150px" height="auto"></a>
                 <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                 aria-expanded="false" aria-label="Toggle navigation"></button>
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -39,7 +39,7 @@
                             <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
+                            <a class="nav-link" href="{{ url('/about') }}">About Us</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Location</a>

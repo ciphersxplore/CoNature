@@ -121,14 +121,21 @@
 
                                     {{-- Register --}}
                                     <div role="tabpanel" class="tab-pane fade" id="paneTwo1" aria-labelledby="hatstab1">
-                                        <form class="form-signin" action="{{ route('registration') }}" method="Post">
+                                        <form class="form-signin" action="{{ route('registration') }}" method="Post" enctype="multipart/form-data">
                                             @csrf
 
                                             <h1 class="login-heading mt-3 text-center">Be ONE of US!</h1>
 
                                             <div class="row">
                                                 <div class="col-md-6">
+                                                    <div class="offset-md-4 \">
+                                                    <div class="avatar-zone" style="border-radius:50%">
+                                                        <img class="img-fluid output_image" style="object-fit:contain; border-radius:50%" src="{{ asset('images/profile/add_user_image.png') }}" accept="image/*" onchange="preview_image(event)">
+                                                    </div>
 
+                                                    <input type="file" class="upload_btn image_input" name="image" required>
+                                                    <div class="overlay-layer">Upload</div>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-label-group">

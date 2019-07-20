@@ -1,3 +1,6 @@
+const auth = require('../middlewares/auth');
+const handler = require("../middlewares/handler");
+const contributor = require("../middlewares/contributor");
 const mongoose = require("mongoose");
 const PointModel = require("../models/Point");
 const express = require("express");
@@ -8,16 +11,16 @@ router.get("/", async (req, res) => {
   res.send(points);
 });
 
-router.post("/add/:id", async (req, res) => {
+
+// called when handler approves the inventory for deposit to grant points
+router.post("/add/:id", [auth, handler], async (req, res) => {
   let user_id = req.params.id;
   let added_points = req.body.added_points;
-  let inventory_id = req.body.inventory_id;
   let remarks = req.body.remarks;
 
   let points = await PointModel({
     user_id: user_id,
     points: added_points,
-    inventory_id: inventory_id,
     remarks: remarks
   });
 
@@ -29,18 +32,20 @@ router.post("/add/:id", async (req, res) => {
   }
 });
 
-router.post("/less/:id", async (req, res) => {
+
+//contributor claims or converts the points 
+router.post("/less/:id", [auth, contributor], async (req, res) => {
   let user_id = req.params.id;
   let {
     deducted_points,
-    reward_id,
+    reward_points_required,
     remarks
   } = req.body;
 
   let conversion = await PointModel({
     user_id: user_id,
     points: deducted_points,
-    reward_id: reward_id,
+    reward_points_required: reward_points_required,
     remarks: remarks
   });
 

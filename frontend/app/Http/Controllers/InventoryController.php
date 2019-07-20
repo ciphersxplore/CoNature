@@ -3,12 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use GuzzleHttp\Client;
-use Session;
-use GuzzleHttp\Exception\ClientException;
-use Illuminate\Support\Facades\Input;
 
-class UserController extends Controller
+class InventoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,29 +34,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $destinationPath = public_path('images/profile');
-        $fileName = Input::file('image')->getClientOriginalName();
-
-        Input::file('image')->move($destinationPath, $fileName);
-
-        try {
-            $client = new Client();
-
-            $client->post('localhost:3000/api/users', [
-                "json" => [
-                    "first_name" => $request->first_name,
-                    "last_name" => $request->last_name,
-                    "email_address" => $request->email_address,
-                    "contact_number" => $request->contact_number,
-                    "password" => $request->password,
-                    "image_path" => $fileName
-                ]
-            ]);
-
-            return redirect()->back()->with('success', 'Registration successful');
-        } catch (ClientException $e) {
-            return redirect()->back()->with('error', 'Kindly check registration details');
-        }
+        //
     }
 
     /**

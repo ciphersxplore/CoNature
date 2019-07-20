@@ -78,7 +78,7 @@ a {
 
 .form-label-group input {
     height: auto;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
 }
 
 .form-label-group>input,
@@ -180,6 +180,37 @@ a {
     margin-right: 20px;
 }
 
+
+.avatar-zone,
+.output_image {
+    width: 120px;
+    height: 120px;
+}
+
+.overlay-layer {
+    width: 120px;
+    height: 40px;
+    position: absolute;
+    margin-top: -40px;
+    opacity: 0.5;
+    background-color: #000000;
+    z-index: 0;
+    font-size: 25px;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 40px;
+}
+
+.upload_btn {
+    position: absolute;
+    width: 70px;
+    height: 40px;
+    margin-top: -40px;
+    z-index: 10;
+    opacity: 0;
+}
+
+
 /* Header */
 
 header {
@@ -220,6 +251,12 @@ header .overlay {
     background-color: black;
     opacity: 0.7;
     z-index: 1;
+}
+
+/*Map*/
+.feedback {
+    margin-left: 2rem;
+
 }
 
 /* Footer */

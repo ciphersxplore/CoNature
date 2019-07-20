@@ -7,16 +7,20 @@ const InventorySchema = new Schema({
     ref: "User",
     required: true
   },
+  checker: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true
+  },
   item_name: String,
   item_description: String,
   item_category: String,
   item_path: String,
-  timestamp: {
-    type: Date,
-    default: Date.now
-  },
+  item_measure: String,
   status: String,
   quantity: Number
 });
+
+InventorySchema.plugin(timestamps);
 
 module.exports = mongoose.model("Inventory", InventorySchema);
