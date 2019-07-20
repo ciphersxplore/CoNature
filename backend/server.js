@@ -17,16 +17,12 @@ mongoose
     })
     .catch();
 
-app.get("/", function (req, res) {
-    res.send("Hello");
-});
-
 app.use(express.json());
 app.use("/api/users", user);
 app.use("/api/points", point);
-app.use('api/auth', auth);
-app.use('api/inventories', inventory)
-app.use('api/rewards', reward);
+app.use('/api/auth', auth);
+app.use('/api/inventories', inventory);
+app.use('/api/rewards', reward);
 
 
 app.listen(config.port, () => {

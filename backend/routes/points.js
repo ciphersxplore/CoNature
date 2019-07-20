@@ -16,7 +16,7 @@ router.post("/add/:id", async (req, res) => {
 
   let points = await PointModel({
     user_id: user_id,
-    added_points: added_points,
+    points: added_points,
     inventory_id: inventory_id,
     remarks: remarks
   });
@@ -31,11 +31,15 @@ router.post("/add/:id", async (req, res) => {
 
 router.post("/less/:id", async (req, res) => {
   let user_id = req.params.id;
-  let { deducted_id, reward_id, remarks } = req.body;
+  let {
+    deducted_points,
+    reward_id,
+    remarks
+  } = req.body;
 
   let conversion = await PointModel({
     user_id: user_id,
-    deducted_id: deducted_id,
+    points: deducted_points,
     reward_id: reward_id,
     remarks: remarks
   });

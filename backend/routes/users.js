@@ -20,9 +20,9 @@ router.post("/", async (req, res) => {
     image_path: req.body.image_path,
     contact_number: req.body.contact_number,
     email_address: req.body.email_address,
-    role: req.body.role,
-    organization: req.body.organization,
-    status: req.body.status
+    role: 'contributor',
+    organization: 'to follow',
+    status: 'active'
   });
 
   let salt = await bcrypt.genSalt(10);

@@ -58,28 +58,123 @@
                     </div>
                 </nav>
 
+                @if(session()->has('error'))
+                <div class="alert alert-danger mb-0">
+                    {{ session()->get('error') }}
+                </div>
+                @endif
+
+                @if(session()->has('success'))
+                <div class="alert alert-success">
+                    {{ session()->pull('success') }}
+                </div>
+                @endif
                 <div class="row">
 
-                {{-- message --}}
-                <div class="col-md-7">
-                    <img src="{{ asset('images/logo/message.png') }}" class="img-fluid" alt="" width="50%" height="auto">
-                    <p>Promoting sustainable consumerism and strategic production</p>
-                </div>
+                    {{-- message --}}
+                    <div class="col-md-6">
+                        <img src="{{ asset('images/logo/message.png') }}" class="img-fluid m-5 mt-3" alt="" width="80%" height="auto">
 
-                {{-- side panel --}}
-                <div class="login col-md-4">
-                    <div class="row">
-                        <p class="hl"></p>
-                        <a href="#" class="register">  Login / Register</a>
-                        <p class="hl"></p>
+                        <div id="carouselId" class="carousel slide ml-5" data-ride="carousel">
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active">
+                                    <p class="home_com">Instilling sustainable and responsible consumerism.</p>
+                                </div>
+                                <div class="carousel-item">
+                                    <p class="home_com">Crafting strategic marketing and accountable production.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Login / Register --}}
+
+                    <div class="col-md-4 offset-md-1">
+                        <div class="card-landing card-signin mt-3" >
+                            <div class="card-body">
+
+
+                                <ul id="clothingnav1" class="nav nav-tabs nav-fill " role="tablist">
+                                    <li class="nav-item"> <a class="nav-link active  btn_outline__purple btn_purple btn-block" href="#home1" id="hometab1" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Sign in</a> </li>
+                                    <li class="nav-item"> <a class="nav-link btn_purple btn_outline__purple btn-block"  href="#paneTwo1" role="tab" id="hatstab1" data-toggle="tab" aria-controls="hats">Register</a> </li>
+                                </ul>
+
+                                <!-- Login-->
+                                <div id="clothingnavcontent1" class="tab-content ">
+                                    <div role="tabpanel" class="tab-pane fade show active " id="home1" aria-labelledby="hometab1">
+
+                                        <h1 class="login-heading mt-3 text-center">Welcome HERO!</h1>
+                                        <form class="form-signin" action="user/login" method="Post">
+                                            @csrf
+                                            <div class="form-label-group">
+                                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email">
+                                                <label for="inputEmail">Email address</label>
+                                            </div>
+
+                                            <div class="form-label-group">
+                                                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
+                                                <label for="inputPassword">Password</label>
+                                            </div>
+                                            <button class="btn btn-primary btn-block text-uppercase" type="submit" style="border: 2px white inset">Submit</button>
+                                        </form>
+                                    </div>
+
+                                    {{-- Register --}}
+                                    <div role="tabpanel" class="tab-pane fade" id="paneTwo1" aria-labelledby="hatstab1">
+                                        <form class="form-signin" action="{{ route('registration') }}" method="Post">
+                                            @csrf
+
+                                            <h1 class="login-heading mt-3 text-center">Be ONE of US!</h1>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-label-group">
+                                                        <input type="text" id="inputFirstname" class="form-control" placeholder="First Name" name="first_name" required autofocus>
+                                                        <label for="inputFirstname" class="ml-2">First Name</label>
+                                                    </div>
+                                                    <div class="form-label-group">
+                                                        <input type="text" id="inputLastname" class="form-control" placeholder="Last Name" name="last_name" required autofocus>
+                                                        <label for="inputLastname" class="ml-2">Last Name</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-label-group">
+                                                <input type="email" id="input_r_Email" class="form-control" placeholder="Email address" name="email_address" required>
+                                                <label for="input_r_Email">Email address</label>
+                                            </div>
+
+                                            <div class="form-label-group">
+                                                <input type="number" id="input_r_Contact" class="form-control" placeholder="Contact Number" name="contact_number" required>
+                                                <label for="input_r_Contact">Contact Number</label>
+                                            </div>
+                                            <div class="form-label-group">
+                                                <input type="password" id="input_r_Password" class="form-control" placeholder="Password" name="password" required>
+                                                <label for="input_r_Password">Password</label>
+                                            </div>
+
+                                            <div class="form-label-group">
+                                                <input type="password" id="input_r_ConfirmPassword" class="form-control" placeholder="Confirm Password" name="Confirm_password"  required>
+                                                <label for="input_r_ConfirmPassword">Confirm password</label>
+                                                <span class="ml-3" id="message"></span>
+                                            </div>
+                                            <button class="btn btn-primary btn-block text-uppercase" style="border: 2px white inset">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                </div>
-
             </div>
-        </header>
+        </div>
+    </header>
 
 
-    </body>
-    </html>
+</body>
+</html>

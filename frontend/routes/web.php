@@ -15,6 +15,19 @@ Route::get('/', function () {
     return view('landing');
 });
 
+
+Route::get('/account', function () {
+    return view('users.account');
+});
+
+Route::get('/contact', function () {
+    return view('users.contact_us');
+});
+
+Route::get('/about', function () {
+    return view('users.about_us');
+});
+
 Route::get('/user', function () {
     return view('layouts.user_layout');
 });
@@ -22,3 +35,6 @@ Route::get('/user', function () {
 Route::get('/admin', function () {
     return view('layouts.admin_layout');
 });
+
+
+Route::post('/user/registration', 'UserController@store')->name('registration');

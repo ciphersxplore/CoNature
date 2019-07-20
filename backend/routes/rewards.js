@@ -9,11 +9,11 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    let reward = await RewardModel;
-    ({
+    let reward = await RewardModel({
         image_path: req.body.image_path,
         item: req.body.item,
-        points_required: req.body.points_required
+        points_required: req.body.points_required,
+        category: req.body.category
     });
 
     reward = await reward.save();

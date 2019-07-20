@@ -8,21 +8,20 @@ About Us
 <div class="container">
     <div class="row mission">
         <div class="about-photo col-lg-5 col-md-6">
-            <img class="img-fluid" src="" alt="mission">
+            <img class="img-fluid" src="{{ asset('images/design/e-commerce-business-concept-back-view-business-owner-checking-ordered-from-client_42193-120.jpg') }}" alt="mission">
         </div>
         <div class="col-lg-7 col-md-6 animated fadeInLeft">
             <h1 style="font-size:3rem">Mission</h1>
-            <p class="">Atlas was officially launched in spring of 2002. The main focus was to market and offer online bus ticketing services for bus companies running inter-city bus services.</p>
-            <p>Atlas focused all its technology efforts on a previously untouched niche of the online ticketing services for bus companies. We offered customers the possibility to search multiple schedules from multiple carriers in one place so they can easily compare and decide what works best for them.</p>
+            <p class="">An organization that collaborates with nature to develop a connection from consumers to retailers up to merchandisers by turning consumed products’ waste into financial gain that would benefit them and the environment.</p>
         </div>
     </div>
     <div class="row mission">
         <div class="vision col-lg-7 col-md-6 animated fadeInRight">
             <h1 style="font-size:3rem">Vision</h1>
-            <p>To become the leading Bus transport and operator in Southern Luzon and Eastern Visayas. We also envision a world where youth are active leaders, diverse communities feel connected to the land and each other, and everyone has access to online ticketing services.</p>
+            <p>Rationing responsible consumers all around the globe.</p>
         </div>
         <div class="about-photo col-lg-5 col-md-6">
-            <img class="img-fluid" src="" alt="vision">
+            <img class="img-fluid" src="{{ asset('images/design/man-s-hand-holding-recycle-products-cardboard-box_23-2147817171.jpg') }}" alt="vision">
         </div>
     </div>
 </div>
