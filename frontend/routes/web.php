@@ -20,8 +20,16 @@ Route::get('/account', function () {
     return view('users.account');
 });
 
+Route::get('/graph', function () {
+    return view('admin.graph');
+});
+
 Route::get('/summary', function () {
     return view('users.summary');
+});
+
+Route::get('/home', function () {
+    return view('users.home');
 });
 
 Route::get('/contact', function () {
@@ -32,7 +40,13 @@ Route::get('/about', function () {
     return view('users.about_us');
 });
 
+Route::get('/graph', function () {
+    return view('admin.graph');
+});
 
+
+Route::get('/user/profile', 'UserController@show')->name('users');
+Route::get('/inventory', 'InventoryController@index')->name('inventory');
 
 
 /* only admin pages */
@@ -50,3 +64,8 @@ Route::group(['middleware' => 'App\Http\Middleware\facilitator'], function () { 
 
 /* user CRUD */
 Route::post('/user/registration', 'UserController@store')->name('registration');
+Route::post('/user/login', 'UserController@auth');
+Route::get('/logout', 'UserController@logout');
+
+/* summary */
+Route::get('/summary/{id}', 'PointsController@index');

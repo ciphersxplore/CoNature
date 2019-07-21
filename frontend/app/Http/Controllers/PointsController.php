@@ -2,6 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Psr7;
+use GuzzleHttp\Exception\RequestException;
+use Session;
+use Validator;
+use Illuminate\Support\MessageBag;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
+
 use Illuminate\Http\Request;
 
 class PointsController extends Controller
@@ -11,11 +20,20 @@ class PointsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
-    }
 
+        $client = new Client();
+        $request = $client->get("localhost:3000/api/points/{$id}");
+
+        $user_points = json_decode($request->getBody());
+
+        dd($user_points);
+
+        //return view('users.summary', compact('user_points'));
+
+
+    }
     /**
      * Show the form for creating a new resource.
      *

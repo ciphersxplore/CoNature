@@ -8,7 +8,7 @@ const router = express.Router();
 //login, provides token
 router.post('/', async (req, res) => {
     let user = await UserModel.findOne({
-        email_address: req.body.email
+        email_address: req.body.email_address
     });
 
     if (!user) return res.status(400).send('Email or password is incorrect.');

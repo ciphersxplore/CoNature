@@ -6,8 +6,8 @@ const PointModel = require("../models/Point");
 const express = require("express");
 const router = express.Router();
 
-router.get("/", async (req, res) => {
-  let points = await PointModel.find();
+router.get("/:id", async (req, res) => {
+  let points = await PointModel.findById(req.params.id);
   res.send(points);
 });
 

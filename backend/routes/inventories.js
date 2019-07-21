@@ -40,7 +40,7 @@ router.put("/:id", [auth, handler], async (req, res) => {
     inventory.item_category = req.body.item_category;
     inventory.item_measure = req.body.item_measure;
     inventory.item_path = req.body.item_path;
-    inventory.status: 'in',
+    inventory.status = 'in',
         inventory.quantity = req.body.quantity
 
 

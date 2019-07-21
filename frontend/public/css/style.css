@@ -253,19 +253,38 @@ header .overlay {
     z-index: 1;
 }
 
+.background-img {
+    background-size: 100%;
+    /* size the background image at 100% like any responsive img tag */
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
 /*Map*/
 .feedback {
-    margin-left: 2rem;
+    background-color: #59B0BA;
+    height: 100%;
+    width: 100%;
+}
+
+.cover {
+    background-color: white;
+    opacity: 1.5;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 
 }
 
-/* Footer */
-.footer,
-.push {
+h {
     height: 50px;
 }
 
 .footer {
+    background: #51BDA9;
     text-align: center;
     line-height: 50px;
     color: white;

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
+use Session;
+use GuzzleHttp\Exception\ClientException;
+use Illuminate\Support\Facades\Input;
 
 class InventoryController extends Controller
 {
@@ -13,7 +17,15 @@ class InventoryController extends Controller
      */
     public function index()
     {
-        //
+        $client = new Client();
+        $response = $client->get('localhost:3000/api/inventories', [
+            "headers" => [
+                "x-auth-token" => Session::get('token')
+            ]
+        ]);
+        $inventories = json_decode($response->getBody());
+
+        return view('admin.handlers', compact('inventories'));
     }
 
     /**

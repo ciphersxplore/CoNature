@@ -43,16 +43,13 @@
                     <div class="collapse navbar-collapse" id="collapsibleNavId">
                         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" id="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" id="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="nav-link" href="#">About Us</a>
+                                <a class="nav-link" id="nav-link" href="/about">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="nav-link" href="#">Location</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="nav-link" href="#">Contact Us</a>
+                                <a class="nav-link" id="nav-link" href="/contact">Contact Us</a>
                             </li>
                         </ul>
                     </div>
@@ -107,7 +104,7 @@
                                         <form class="form-signin" action="user/login" method="Post">
                                             @csrf
                                             <div class="form-label-group">
-                                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email">
+                                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email_address">
                                                 <label for="inputEmail">Email address</label>
                                             </div>
 
@@ -121,7 +118,7 @@
 
                                     {{-- Register --}}
                                     <div role="tabpanel" class="tab-pane fade" id="paneTwo1" aria-labelledby="hatstab1">
-                                        <form class="form-signin" action="{{ route('registration') }}" method="Post" enctype="multipart/form-data">
+                                        <form class="form-signin" action="/user/registration" method="POST" enctype="multipart/form-data">
                                             @csrf
 
                                             <h1 class="login-heading mt-3 text-center">Be ONE of US!</h1>
@@ -168,7 +165,7 @@
                                                 <label for="input_r_ConfirmPassword">Confirm password</label>
                                                 <span class="ml-3" id="message"></span>
                                             </div>
-                                            <button class="btn btn-primary btn-block text-uppercase" style="border: 2px white inset">Submit</button>
+                                            <button class="btn btn-primary btn-block text-uppercase" type="submit" style="border: 2px white inset">Submit</button>
                                         </form>
                                     </div>
                                 </div>

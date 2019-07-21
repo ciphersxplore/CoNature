@@ -30,6 +30,30 @@ class UserController extends Controller
         //
     }
 
+    public function auth(Request $request)
+    {
+
+        try {
+            $client = new Client();
+
+            $response = $client->post('localhost:3000/api/auth', [
+                'json' => [
+                    "email_address" => $request->email_address,
+                    "password" => $request->password
+                ]
+            ]);
+
+            Session::put('user', json_decode($response->getBody()));
+            Session::put('token', $response->getHeader('x-auth-token'));
+
+            if (session('user')->role == 'admin' || session('user')->role == 'facility' || session('user')->role == 'handler') {
+                return redirect('/graph');
+            }
+            return view('users.summary');
+        } catch (ClientException $e) {
+            return redirect()->back()->with('error', 'Email or Password is incorrect');
+        }
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -69,9 +93,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $client = new Client();
+        $response = $client->get('localhost:3000/api/users', [
+            "headers" => [
+                "x-auth-token" => Session::get('token')
+            ]
+        ]);
+        $users = json_decode($response->getBody());
+
+        return view('admin.users', compact('users'));
     }
 
     /**
@@ -104,7 +136,11 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+    { }
+
+    public function logout()
     {
-        //
+        Session::flush();
+        return redirect('/');
     }
 }

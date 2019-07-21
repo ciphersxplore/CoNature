@@ -31,3 +31,7 @@ $('#input_r_Password, #input_r_ConfirmPassword').on('keyup', function () {
         $('#message').html("Passwords does not match").css('color', 'darkred');
     }
 });
+
+$(document).ready(function () {
+    $('#dataTable').DataTable();
+});

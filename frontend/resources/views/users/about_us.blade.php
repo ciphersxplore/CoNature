@@ -5,7 +5,8 @@ About Us
 @endsection
 
 @section('content')
-<div class="container">
+<body background="{{ asset('images/design/leaves-bg1.jpg') }}" class = "background-img">
+<div class="container cover">
     <div class="row mission mt-2">
         <div class="about-photo col-lg-5 col-md-6">
             <img class="img-fluid" src="{{ asset('images/design/e-commerce-business-concept-back-view-business-owner-checking-ordered-from-client_42193-120.jpg') }}" alt="mission" style="border-radius: 5px; box-shadow: 10px 8px #333 !important;">
@@ -27,4 +28,5 @@ About Us
         </div>
     </div>
 </div>
+</body>
 @endsection
